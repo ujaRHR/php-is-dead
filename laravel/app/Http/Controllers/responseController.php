@@ -7,7 +7,11 @@ use Illuminate\Http\Request;
 class responseController extends Controller
 {
     function checkResponse(Request $request){
-        // Start Checking Response Code here...
-        $response = $request->ip();
+
+        return response([
+            "status" => "success",
+            "ip" => $request->ip(),
+            "domain" => $_SERVER['SERVER_NAME']
+        ]);
     }
 }
