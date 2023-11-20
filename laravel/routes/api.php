@@ -3,8 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RandomPersonController;
-use App\Http\Controllers\createPersonController;
-use App\Http\Controllers\responseController;
+use App\Http\Controllers\CreatePersonController;
+use App\Http\Controllers\ResponseController;
 
 /*
 |--------------------------------------------------------------------------
