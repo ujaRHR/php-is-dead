@@ -2,6 +2,8 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\DemoMiddleware;
+use App\Http\Middleware\IPCheckerMiddleware;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -64,5 +66,10 @@ class Kernel extends HttpKernel
         'signed' => \App\Http\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        
+        // Custom Middlewares
+        'ipchecker' => \App\Http\Middleware\Demo\IPCheckerMiddleware::class,
+        'inject' => \App\Http\Middleware\Demo\ResponseEditorMiddleware::class
+
     ];
 }

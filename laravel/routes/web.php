@@ -15,4 +15,16 @@ Route::get('/', function () {
 Route::get('/random/{name?}', [RandomPersonController::class, 'randomUser'])->whereAlphaNumeric('name');
 Route::get('/form', [formController::class, 'getFormData']);
 Route::post('/form', [formController::class, 'handleFormData']);
-Route::get('/demo', [DemoController::class, 'demoBasics']);
+
+// Middleware
+Route::get('/demo', [DemoController::class, 'checkRequest'])->middleware('throttle: 10, 1');
+Route::get('/inject', [DemoController::class, 'injectResponse'])->middleware('inject');
+
+// Middleware Group
+Route::middleware(['ipchecker', 'throttle: 10, 1'])->group(function () {
+    Route::get('/demo1', [DemoController::class, 'checkRequest']);
+    Route::get('/demo2', [DemoController::class, 'checkRequest']);
+    Route::get('/demo3', [DemoController::class, 'checkRequest']);
+    Route::get('/demo4', [DemoController::class, 'checkRequest']);
+    Route::get('/demo5', [DemoController::class, 'checkRequest']);
+});

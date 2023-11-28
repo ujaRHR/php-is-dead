@@ -6,9 +6,11 @@ use Illuminate\Http\Request;
 
 class DemoController extends Controller
 {
-    function demoBasics(Request $request) {
-        $imagePath = public_path("images/") . "cat.jpg";
+    function checkRequest(Request $request){
+        return view("demo.demo");
+    }
 
-        return response()->file($imagePath);
+    function injectResponse(Request $request){
+        return "You Should Not Be Supposed to See This!";
     }
 }

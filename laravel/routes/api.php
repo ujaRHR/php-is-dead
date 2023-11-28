@@ -23,4 +23,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/random', [RandomPersonController::class, 'randomUser']);
 Route::post('/create-person', [createPersonController::class, 'createNewPerson']);
-Route::get('/response', [responseController::class, 'checkResponse']);
+Route::get('/response', [responseController::class, 'checkResponse'])->middleware('throttle: 20, 1');
