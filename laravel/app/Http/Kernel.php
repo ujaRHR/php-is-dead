@@ -68,7 +68,7 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         
         // Custom Middlewares
-        'ipchecker' => \App\Http\Middleware\Demo\IPCheckerMiddleware::class,
+        'country_blocker' => \App\Http\Middleware\Demo\CountryBlockerMiddleware::class,
         'inject' => \App\Http\Middleware\Demo\ResponseEditorMiddleware::class
 
     ];
