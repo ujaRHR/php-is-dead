@@ -25,7 +25,7 @@ Route::get('/inject', [DemoController::class, 'injectResponse'])->middleware('in
 Route::middleware(['country_blocker', 'throttle: 5, 1'])->group(function () {
     Route::get('/demo1', [DemoController::class, 'checkRequest']);
     Route::get('/demo2', [DemoController::class, 'checkRequest']);
-    Route::get('/demo3', [DemoController::class, 'checkRequest']);
+    Route::get('/demo3', [DemoController::class, 'checkRequest'])->withoutMiddleware('throttle: 5, 1');
     Route::get('/demo4', [DemoController::class, 'checkRequest']);
     Route::get('/demo5', [DemoController::class, 'checkRequest']);
 });
