@@ -21,7 +21,7 @@ Route::get('/demo', [DemoController::class, 'checkRequest'])->middleware('thrott
 Route::get('/inject', [DemoController::class, 'injectResponse'])->middleware('inject');
 
 // Middleware Group
-Route::middleware(['ipchecker', 'throttle: 10, 1'])->group(function () {
+Route::middleware(['ipchecker', 'throttle: 50, 1'])->group(function () {
     Route::get('/demo1', [DemoController::class, 'checkRequest']);
     Route::get('/demo2', [DemoController::class, 'checkRequest']);
     Route::get('/demo3', [DemoController::class, 'checkRequest']);

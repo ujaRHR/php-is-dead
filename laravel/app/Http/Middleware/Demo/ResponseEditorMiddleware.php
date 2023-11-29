@@ -11,8 +11,8 @@ class ResponseEditorMiddleware
     public function handle(Request $request, Closure $next): Response
     {
         $response = $next($request);
-        $response->setContent("Injected Response via the ResponseEditor Middleware");
+        $response->setContent("You are seeing this just because of the Laravel Middleware");
         return $response;
-        
+
     }
 }
