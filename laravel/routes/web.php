@@ -5,11 +5,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RandomPersonController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\DemoController;
+use App\Http\Controllers\ViewsController;
 
 
 Route::get('/', function () {
     return view('welcome');
-})->name('home');
+})->name('welcome');
 
 
 Route::get('/random/{name?}', [RandomPersonController::class, 'randomUser'])->whereAlphaNumeric('name');
@@ -28,4 +29,13 @@ Route::middleware(['country_blocker', 'throttle: 5, 1'])->group(function () {
     Route::get('/demo3', [DemoController::class, 'checkRequest'])->withoutMiddleware('throttle: 5, 1');
     Route::get('/demo4', [DemoController::class, 'checkRequest']);
     Route::get('/demo5', [DemoController::class, 'checkRequest']);
+});
+
+
+// For Checking View Directives
+Route::middleware(['', ''])->group(function () {
+    Route::get('/views/', [ViewsController::class, 'homePage'])->name('home');
+    Route::get('/views/contact', [ViewsController::class, 'contactPage'])->name('contact');
+    Route::get('/views/projects', [ViewsController::class, 'projectsPage'])->name('projects');
+    Route::get('/views/about', [ViewsController::class, 'aboutPage'])->name('about');
 });
