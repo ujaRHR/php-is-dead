@@ -1,6 +1,6 @@
 <header id="header">
     <div class="header-content clearfix">
-        <a class="logo" href="/">
+        <a class="logo" href="{{ route("home")}}">
             <img src="{{ asset('images/logo.png') }}" alt="Portfolio">
         </a>
         <nav class="navigation" role="navigation">

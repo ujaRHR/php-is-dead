@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Log;
 
 class DemoController extends Controller
 {
@@ -20,7 +21,7 @@ class DemoController extends Controller
         $date = Carbon::now();
         $Upcomingdate = Carbon::now()->addMinutes(50)->format("H:i:s");
 
-
+        Log::emergency("Date is working fine...");
         return $date . " <----After 50 Mins----> " . $Upcomingdate;
     }
 }

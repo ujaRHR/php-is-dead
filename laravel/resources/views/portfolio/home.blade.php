@@ -1,6 +1,7 @@
-@extends("layouts.master")
+@extends("layouts.app")
 
 @section("title", "Home | Laravel Portfolio")
+@section("meta-keywords", "Home, PHP, Laravel")
 
 @section("content")
 <section class="banner" role="banner">

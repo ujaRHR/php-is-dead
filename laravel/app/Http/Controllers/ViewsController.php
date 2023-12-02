@@ -21,4 +21,18 @@ class ViewsController extends Controller
     function contactPage(Request $request){
         return view("portfolio.contact");
     }
+
+    function contactPageInfo(Request $request){
+        $name = $request->input('name');
+        $email = $request->input('email');
+        $details = $request->input('details');
+        
+        $data = [
+            'name'=> $name,
+            'email'=> $email,
+            'details'=> $details
+        ];
+        
+        return $data;
+    }
 }
