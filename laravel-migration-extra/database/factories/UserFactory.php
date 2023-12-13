@@ -18,6 +18,7 @@ class UserFactory extends Factory
     public function definition(): array
     {
         $faker = Faker::create();
+        
         return [
             "email"=> $faker->email,
             "otp" => $faker->numberBetween(100000,999999),
