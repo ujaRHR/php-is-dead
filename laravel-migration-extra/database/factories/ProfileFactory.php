@@ -14,13 +14,14 @@ class ProfileFactory extends Factory
 {
     public function definition() : array
     {
-        $faker      = Faker::create();
+        $faker      = Faker::create('en_US');
         $userEmails = User::pluck('email')->toArray();
         static $index = 0;
+
         return [
             "first_name" => $faker->firstName,
             "last_name" => $faker->lastName,
-            "mobile" => $faker->phoneNumber,
+            "mobile" => $faker->e164PhoneNumber(),
             "city" => $faker->city,
             "shipping_address" => $faker->streetAddress,
             "email" => $userEmails[$index++]

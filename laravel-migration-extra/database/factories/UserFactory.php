@@ -21,9 +21,8 @@ class UserFactory extends Factory
         
         return [
             "email"=> $faker->email,
-            "otp" => $faker->numberBetween(100000,999999),
-            "created_at" => $faker->dateTime(),
-            "updated_at"=> $faker->dateTime()
+            "otp" => $faker->numberBetween(100000,999999)
+            
         ];
     }
 }
