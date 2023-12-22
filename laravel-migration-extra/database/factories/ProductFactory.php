@@ -16,7 +16,7 @@ class ProductFactory extends Factory
         $category = Category::pluck("id");
 
         return [
-            "title" => $faker->words(2),
+            "title" => $faker->word(),
             "short_des" => $faker->sentence(10),
             "price" => $faker->randomFloat(2, 10, 99),
             "discount" => $faker->boolean(),
