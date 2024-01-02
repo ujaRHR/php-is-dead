@@ -1,8 +1,7 @@
 <?php
 
-use App\Http\Controllers\DemoController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EloquentController;
 
 
-
-Route::get('/', [DemoController::class, 'DemoAction']);
+Route::get('/data', [EloquentController::class, 'getData']);
