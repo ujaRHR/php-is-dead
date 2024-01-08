@@ -12,23 +12,11 @@ use App\Models\Category;
 
 class EloquentController extends Controller
 {
-    public function getData(Request $request)
+    function getData(Request $request)
     {
 
-        // $profile = User::find(2)->profile;
-        // $user = Profile::find(2)->user;
-        // $profile = User::with("profile")->find(6);
+        $data = User::with('profile')->get();
 
-        // $brand = Product::find(2)->brand;
-        // $product = Category::find(2)->products;
-        // $category = Product::find(3)->category;
-
-        $productDetail = Product::with("category")->get();
-
-        return $productDetail;
-
-
-
-
+        return $data;
     }
 }

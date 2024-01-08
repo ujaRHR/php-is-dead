@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('mobile',50);
             $table->string('city',50);
             $table->string('shippingAddress',1000);
-            $table->string('email',50)->unique();
+            $table->string('email',50);
             $table->foreign('email')->references('email')->on('users')
             ->restrictOnDelete()
             ->cascadeOnUpdate();
